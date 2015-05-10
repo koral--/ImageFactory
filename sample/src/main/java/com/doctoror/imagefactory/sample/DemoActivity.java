@@ -175,5 +175,14 @@ public final class DemoActivity extends ActionBarActivity {
         public void addView(View view) {
             mViewSet.add(new WeakReference<>(view));
         }
+
+        public void removeView(View view) {
+            Iterator<WeakReference<View>> iterator = mViewSet.iterator();
+            while (iterator.hasNext()) {
+                if (view ==iterator.next().get()) {
+                    iterator.remove();
+                }
+            }
+        }
     }
 }
